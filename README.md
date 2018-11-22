@@ -14,7 +14,7 @@ We plan to use B/S patten with MVC to build our cloud App. Divide the frontend d
 the Http request is the only same forms we have to handout.
  
 # Issues
-###1.  When install the google-cloud-sdk, in MacOS X, there will have a error like this
+### 1.  When install the google-cloud-sdk, in MacOS X, there will have a error like this
 ```
 ERROR: (gcloud.components.install) Your current working directory is inside the Cloud SDK
 install root: [Your Home]/Documents/google-cloud-sdk. In order to perform this update, run
