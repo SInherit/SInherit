@@ -11,5 +11,6 @@ def server(ip, fun) :
     if (ip != 0):
         print(ip)
     print(fun)
+    pass
 
 print(server("testing","post"))
