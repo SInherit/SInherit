@@ -16,9 +16,10 @@ the Http request is the only same forms we have to handout.
 # Issues
 ### 1.  When install the google-cloud-sdk, in MacOS X, there will have a error like this
 ```
-ERROR: (gcloud.components.install) Your current working directory is inside the Cloud SDK
-install root: [Your Home]/Documents/google-cloud-sdk. In order to perform this update, run
-the command from outside of this directory.
+Your current Cloud SDK version is: 225.0.0
+
+ERROR: (gcloud.components.list) Failed to fetch component listing from server. 
+Check your network settings and try again.
 ```
 
 this bug may because of the google cloud sdk don't support ipv6, so some of the users switched off the
@@ -42,4 +43,9 @@ $ networksetup -setv6automatic Wi-Fi
 ``` 
 
 *unfortunately, this way did not work in my Mac, so until nowm we cannot push forward our work even one step.*
- 
+
+__After a new version is released by google, this issue is fixed.__
+
+```commandline
+Your current Cloud SDK version is: 226.0.0
+```
