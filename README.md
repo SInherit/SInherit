@@ -49,3 +49,21 @@ __After a new version is released by google, this issue is fixed.__
 ```commandline
 Your current Cloud SDK version is: 226.0.0
 ```
+
+### 2.The Google App Engine only support Python2.7.x
+
+I use Python3, but the Google App Engine seems only support Python2.7.X
+```commandline
+$  hello_world git:(master) dev_appserver.py app.yaml
+
+ERROR: Python 3 and later is not compatible with the Google Cloud SDK. Please use Python version 2.7.x.
+
+If you have a compatible Python interpreter installed, you can use it by setting
+the CLOUDSDK_PYTHON environment variable to point to it.
+
+```
+
+I changed all the CLOUDSDK_PYTHON attributes in the google-cloud-sdk/install.sh file like the Error mentioned that.
+However, this kind of change did not work!
+
+Fixing...
