@@ -12,6 +12,10 @@ As our coursework requirements, we have to use Google App Engine service with Py
 # Database
 We plan to use `Google Bigtable` as our database.
 
+# Tool
+IDE: `PyCharm & WebStorm`.
+Cloude plantform: `Google App Engine`.
+
 # Web Structure
 We plan to use `B/S patten` with `MVC` to build our cloud App. Divide the frontend design and backend design, each part members focus on their own part and
 the Http request is the only same forms we have to handout.
