@@ -4,7 +4,7 @@ The AIM is to build a second hand plantfrom for international student.
 Students who registered can find all they need in a unfamiliar country from their upperclassman.
 
 # Frontend
-Our frontend AKA webpage used React.js framework to help us build up the webpage(up to now, maybe we will change our frontend some day).
+Our frontend AKA webpage used `React.js` framework to help us build up the webpage(up to now, maybe we will change our frontend some day).
 
 # Backend
 As our coursework requirements, we have to use Google App Engine service with Python as our backend, it means, at last, we will deploy our project into the cloud. We plan to use `Django@2.0.x`
