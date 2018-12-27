@@ -1,0 +1,52 @@
+﻿<!doctype html>
+{% load staticfiles %}
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style type="text/css">
+        .error{
+            background: #fb8344;
+            color:#fff !important;
+            text-align: center;
+            line-height: 40px !important;
+            margin:10px 0;}
+    </style>
+</head>
+<body>
+<div class="htmleaf-container">
+	<div class="wrapper">
+		<div class="container">
+			<h1>Welcome</h1>
+			<form class="form" method="post" action="{% url 'login' %}">
+				<input type="text" placeholder="用户名", name="uname">
+				<input type="password" placeholder="密码", name="pwd">
+				<input type="submit" value="登录" id="login-button"></input>
+                {% csrf_token %}
+			</form>
+             <div class="error btns login-form-tips" id="jsLoginTips">{% for key,error in login_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</div>
+		</div>
+
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#000000">
+<h1>在线web购物系统</h1>
+</div>
+</body>
+</html>
