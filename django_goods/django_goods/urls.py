@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from WebShop.views import HomeView
+from WebShop.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^$', HomeView.as_view(), name='home'),
     url('^custom-user/', include('custom_user.urls')),
+    url('goods-item/', GoodsDetail.as_view(), name='goods-item'),
+    url('gouwuche/', GouWuCheView.as_view(), name='gouwuche'),
+    url('dingdan/', DingDanView.as_view(), name='dingdan'),
+    url('liuyan_save/', CommentView.as_view(), name='liuyan_save'),
 ]
 
 from django.views.static import serve

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-12-28 00:15:48
+Date: 2018-12-31 23:36:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of auth_permission
@@ -84,6 +84,15 @@ INSERT INTO `auth_permission` VALUES ('15', 'Can delete session', '6', 'delete_s
 INSERT INTO `auth_permission` VALUES ('16', 'Can add 用户信息', '2', 'add_userprofile');
 INSERT INTO `auth_permission` VALUES ('17', 'Can change 用户信息', '2', 'change_userprofile');
 INSERT INTO `auth_permission` VALUES ('18', 'Can delete 用户信息', '2', 'delete_userprofile');
+INSERT INTO `auth_permission` VALUES ('19', 'Can add 留言', '7', 'add_commentmodel');
+INSERT INTO `auth_permission` VALUES ('20', 'Can change 留言', '7', 'change_commentmodel');
+INSERT INTO `auth_permission` VALUES ('21', 'Can delete 留言', '7', 'delete_commentmodel');
+INSERT INTO `auth_permission` VALUES ('22', 'Can add 商品', '8', 'add_goods');
+INSERT INTO `auth_permission` VALUES ('23', 'Can change 商品', '8', 'change_goods');
+INSERT INTO `auth_permission` VALUES ('24', 'Can delete 商品', '8', 'delete_goods');
+INSERT INTO `auth_permission` VALUES ('25', 'Can add 购买记录', '9', 'add_goodsrecord');
+INSERT INTO `auth_permission` VALUES ('26', 'Can change 购买记录', '9', 'change_goodsrecord');
+INSERT INTO `auth_permission` VALUES ('27', 'Can delete 购买记录', '9', 'delete_goodsrecord');
 
 -- ----------------------------
 -- Table structure for `custom_user_userprofile`
@@ -105,11 +114,12 @@ CREATE TABLE `custom_user_userprofile` (
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of custom_user_userprofile
 -- ----------------------------
+INSERT INTO `custom_user_userprofile` VALUES ('1', 'pbkdf2_sha256$36000$Rt20ChdRoZek$UvuomAUw2XNHY7RBb/sFsZQas79smCnHPYMjMHZVM6w=', '2018-12-31 23:29:44.857382', '1', 'admin', '', '', 'admin123@qq.com', '1', '1', '2018-12-31 23:29:33.842752', null, 'image/default.png');
 
 -- ----------------------------
 -- Table structure for `custom_user_userprofile_groups`
@@ -183,7 +193,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of django_content_type
@@ -194,6 +204,9 @@ INSERT INTO `django_content_type` VALUES ('4', 'auth', 'permission');
 INSERT INTO `django_content_type` VALUES ('1', 'contenttypes', 'contenttype');
 INSERT INTO `django_content_type` VALUES ('2', 'custom_user', 'userprofile');
 INSERT INTO `django_content_type` VALUES ('6', 'sessions', 'session');
+INSERT INTO `django_content_type` VALUES ('7', 'WebShop', 'commentmodel');
+INSERT INTO `django_content_type` VALUES ('8', 'WebShop', 'goods');
+INSERT INTO `django_content_type` VALUES ('9', 'WebShop', 'goodsrecord');
 
 -- ----------------------------
 -- Table structure for `django_migrations`
@@ -205,7 +218,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -224,6 +237,7 @@ INSERT INTO `django_migrations` VALUES ('11', 'custom_user', '0001_initial', '20
 INSERT INTO `django_migrations` VALUES ('12', 'admin', '0001_initial', '2018-12-28 00:14:36.619098');
 INSERT INTO `django_migrations` VALUES ('13', 'admin', '0002_logentry_remove_auto_add', '2018-12-28 00:14:36.635099');
 INSERT INTO `django_migrations` VALUES ('14', 'sessions', '0001_initial', '2018-12-28 00:14:36.718103');
+INSERT INTO `django_migrations` VALUES ('15', 'WebShop', '0001_initial', '2018-12-31 23:22:17.717807');
 
 -- ----------------------------
 -- Table structure for `django_session`
@@ -239,4 +253,70 @@ CREATE TABLE `django_session` (
 
 -- ----------------------------
 -- Records of django_session
+-- ----------------------------
+INSERT INTO `django_session` VALUES ('wt3r0o4x2kbxewwr6s9man2xc4xd3qn9', 'YjNiNTI3ODc3ODNjYjU0MjJiY2M0Njk5YTkwZGFkMzlkOGY5NDZmYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiY3VzdG9tX3VzZXIudmlld3MuQ3VzdG9tQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjVkYjZiNGQzNTQwNDFjMTVmZmRiOTUzNjQ5YzQ1ZGYwMTY5MzY2MTkifQ==', '2019-01-14 23:29:44.939387');
+
+-- ----------------------------
+-- Table structure for `webshop_commentmodel`
+-- ----------------------------
+DROP TABLE IF EXISTS `webshop_commentmodel`;
+CREATE TABLE `webshop_commentmodel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(256) NOT NULL,
+  `discription` longtext NOT NULL,
+  `create_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of webshop_commentmodel
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `webshop_goods`
+-- ----------------------------
+DROP TABLE IF EXISTS `webshop_goods`;
+CREATE TABLE `webshop_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classification` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `discription` longtext NOT NULL,
+  `has_sale` int(11) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `price` int(11) NOT NULL,
+  `counts` int(11) NOT NULL,
+  `create_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of webshop_goods
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `webshop_goodsrecord`
+-- ----------------------------
+DROP TABLE IF EXISTS `webshop_goodsrecord`;
+CREATE TABLE `webshop_goodsrecord` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(128) NOT NULL,
+  `classification` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `discription` longtext NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `price` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `count` int(11) NOT NULL,
+  `adress` varchar(256) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `create_at` datetime(6) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `order_id` (`order_id`),
+  KEY `WebShop_goodsrecord_user_id_f3f2338a_fk_custom_us` (`user_id`),
+  CONSTRAINT `WebShop_goodsrecord_user_id_f3f2338a_fk_custom_us` FOREIGN KEY (`user_id`) REFERENCES `custom_user_userprofile` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of webshop_goodsrecord
 -- ----------------------------
