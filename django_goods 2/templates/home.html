@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>web二手购物发布网站</title>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+        background-color: #ff6500;
+    }
+    .resource-list {
+        width: 100%;
+        margin: 20px auto;
+        height: 600px;
+        clear: left;
+    }
+    .resource-item {
+        width: 200px;
+        float: left;
+        min-height: 280px;
+        background-color: rgba(255,255,255,1);
+        transition: 3s all linear;
+        margin: 0px 5px 12px 5px;
+        box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.5);
+        -webkit-transition: All 1s ease;
+        -moz-transition: All 1s ease;
+        -o-transition: All 1s ease;
+    }
+    .resource-item:hover {
+      border: 1px solid #e6a360;
+      z-index: 10;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+</style>
+</head>
+<body style="background-color:antiquewhite;">
+    <nav class="navbar navbar-default"  style="background-color:#eabfae; height:52px">
+        <div class="container">
+            <!--这里制作LOGO和缩小页面后的展开按钮-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"   
+                    data-toggle="collapse" data-target="#aaaa" aria-expanded="false">  
+                    <span style="color:hotpink"><b>展开</b></span>
+                </button>  
+                <img src="{% static 'images/1.png' %}" height="40px";width="40px" align="lift">
+            </div> 
+            <!--这里制作导航首页，论坛等各个按钮-->
+            <div class="collapse navbar-collapse"  id="aaaa">  
+                <ul class="nav  navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 [{{ request.user }}] 来 到  在 线 web 二 手 购 物 网 站！</B></li>
+                        <li><a href="{% url 'logout' %}">退出</a></li>
+                    {% else %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 来 到 在 线 web 购 物 网 站！</B></li>
+                        <li><a href="{% url 'login' %}">请登录</a></li>
+                        <li><a href="{% url 'register' %}">免费注册</a></li>
+                    {% endif %}
+                </ul>
+                <div class="navbar-right collapse navbar-collapse" id="bbbb">
+                    <ul class="nav  navbar-nav">
+                        <li><a href="{% url 'gouwuche' %}">   购物车      |</a></li>
+                        <li><a href="{% url 'dingdan' %}">   我的订单 |</a></li>
+                        <li class="active"><a href="{% url 'home' %}">   商品分类 |</a></li>
+                        <li><a href="http://www.baidu.com" target="_blank">精彩推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div style="padding: 60px 560px 10px; width:100%" >
+        <form class="bs-example bs-example-form" role="form" >
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control"  placeholder="三星Note8新品上市"  style="border-top-left-radius: 17px;  border-bottom-left-radius: 17px; border-color:#F60" >
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"  style=" background-color:#F60">搜索</button>
+                            </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </form>
+    </div>
+    <nav class="navbar navbar-default"  style="background-color:#F60;height:30px;width:70%;margin:auto;margin-top:40px;">
+        <div style="float:left; width: 76%">
+            <ul class="nav  navbar-nav">
+                <li class="active" style="font-family:宋体; font-size:18px; color:white; margin-left:45px; line-height:200%"><B>&nbsp;       主题市场</B></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px" href="{% url 'home' %}?type=0"><b style="color:#FFF">服装首饰</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=1"><b style="color:#FFF">家电数码</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=2"><b style="color:#FFF">美食生鲜</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=3"><b style="color:#FFF">运动乐器</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=4"><b style="color:#FFF">日用百货</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=5"><b style="color:#FFF">美妆洗护</b></a></li>
+            </ul>
+            <div class="resource-list">
+                {% for item in goods %}
+                    <a class="resource-item" href="{% url 'goods-item' %}?id={{ item.id }}">
+                        <img src="/{{ item.pic.url }}" alt="######" style="width: 200px;height: 200px">
+                        <div class="detail-item" style="padding: 1px">
+                            <span style="color: #F40;padding: 1px">¥</span>
+                            <strong style="color: #F40;font-weight: 700;padding: 1px">{{ item.price }}</strong>
+                            <span style="float: right; color: #737373;font-size: 12px;padding: 1px">{{ item.has_sale }}人付款</span>
+                            <p style="padding: 5px 0px;font-size: 12px">{{ item.discription }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="menu" style="background-color:#FFF;height:650px;width:24%;float:left;margin-top:30px">
+            <div><img  src="{% static 'images/tu4.gif' %}" width="80px" height="80px" style="margin-left:80px; margin-top:60px" >
+            <a style=" margin-left:90px; margin-top:20px; color:red"><b>Hi！你好</b></a></div>
+            <div class="btn-toolbar" role="toolbar" style="margin-left:25px; margin-top:20px"></div>
+            <textarea style="width: 100%" type="text" placeholder="说点什么吧?" id="saywhat"></textarea>
+            <div class="tabbable" style="font-size:9px" id="tabs-39579">
+                <button style="float: right" id="saybtn">发表</button>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                         <a href="#panel-300337" data-toggle="tab"><b>留言</b></a>
+                    </li>
+                </ul>
+            </div>
+            <ul style="list-style: none;padding: 6px" id="say-list">
+                {% for item in commends %}
+                    <li style="border-bottom: 1px dashed rgba(240,150,102,0.28);font-size: 12px" data="{{ item.id }}">
+                        <span><strong>{{ item.user }}</strong>({{ item.create_at }}):</span>
+                        <p style="height:auto;word-break:break-all; color: #23527c;">{{ item.discription }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#saybtn").click(function () {
+            var saycontent = $("#saywhat").val();
+            if (saycontent.trim() == "")
+            {
+                return;
+            }
+            var data={"des":saycontent};
+            $.post("{%url 'liuyan_save' %}", data, function(result) {
+                var err = result["code"];
+                if (err == -1) {
+                    alert(result["msg"]);
+                }
+                else {
+                    window.location.href="/";
+                }
+            });
+        });
+        setInterval(function () {
+            var first_li = $("#say-list>:first");
+            data = {"id":first_li.attr("data")};
+            $.get("{%url 'liuyan_save' %}", data, function(result) {
+                $("#say-list").fadeOut();
+                var html = "";
+                result = jQuery.parseJSON(result);
+                for(var i=0;i<result.length;i++)
+                {
+                    var temp_map = result[i]["fields"];
+                    var pk = result[i]["pk"];
+                    html += "<li style='border-bottom: 1px dashed rgba(240,150,102,0.28);font-size: 12px' data='"+pk+"'><span><strong>"+
+                        temp_map["user"]+"</strong>("+temp_map["create_at"]+"):</span><p style='height:auto;word-break:break-all; color: #23527c;'>"+
+                        temp_map["discription"]+"</p></li>";
+                }
+                $("#say-list").html(html);
+                $("#say-list").fadeIn();
+            });
+        },10000);
+    });
+
+</script>
+</html>
