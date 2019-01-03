@@ -59,20 +59,20 @@
             <div class="collapse navbar-collapse"  id="aaaa">
                 <ul class="nav  navbar-nav">
                     {% if request.user.is_authenticated %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 [{{ request.user }}] 来 到  在 线 web 购 物 网 站！</B></li>
-                        <li><a href="{% url 'logout' %}">退出</a></li>
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp;[{{ request.user }}] Welcome to SIherit!</B></li>
+                        <li><a href="{% url 'logout' %}">Exit</a></li>
                     {% else %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 来 到 在 线 web 购 物 网 站！</B></li>
-                        <li><a href="{% url 'login' %}">请登录</a></li>
-                        <li><a href="{% url 'register' %}">免费注册</a></li>
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; Welcome to SIherit!</B></li>
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a href="{% url 'register' %}">Sign On</a></li>
                     {% endif %}
                 </ul>
                 <div class="navbar-right collapse navbar-collapse" id="bbbb">
                     <ul class="nav  navbar-nav">
-                        <li class="active"><a href="{% url 'gouwuche' %}">   购物车      |</a></li>
-                        <li><a href="{% url 'dingdan' %}">   我的订单 |</a></li>
-                        <li><a href="{% url 'home' %}">   商品分类 |</a></li>
-                        <li><a href="http://www.baidu.com" target="_blank">精彩推荐</a></li>
+                        <li class="active"><a href="{% url 'gouwuche' %}">Basket</a></li>
+                        <li><a href="{% url 'dingdan' %}">    Your Lists</a></li>
+                        <li><a href="{% url 'home' %}">  Shop by Department</a></li>
+                        <li><a href="http://www.baidu.com" target="_blank">For You</a></li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 
     <div id=tubiao; style="margin-left:250px;">
         <img src="{% static 'images/biaozhi.png' %}" />
-        <h1 style="font-size:22px; color:#F60; margin-left:180px; margin-top:-50px"><b>购物车</b></h1>
+        <h1 style="font-size:22px; color:#F60; margin-left:180px; margin-top:-50px"><b>Basket</b></h1>
     </div>
 
 
@@ -94,11 +94,11 @@
                     <label for="all"></label>
                     全选
                 </li>
-                <li class="list_con">商品信息</li>
-                <li class="list_price">单价</li>
-                <li class="list_amount">数量</li>
-                <li class="list_sum">金额</li>
-                <li class="list_op">操作</li>
+                <li class="list_con">Goods Info</li>
+                <li class="list_price">Price</li>
+                <li class="list_amount">Quantity</li>
+                <li class="list_sum">Subtotal</li>
+                <li class="list_op">Option</li>
             </ul>
         </div>
 
@@ -110,7 +110,7 @@
                     <label for="shop_a" class="shop"></label>
                 </div>
                 <div class="shop_name" >
-                    店铺
+                    shop
                 </div>
             </div>
             <div class="order_content">
@@ -134,7 +134,7 @@
                             <p class="sum_price">￥{% widthratio item.count 1 item.price%}</p>
                         </li>
                         <li class="list_op">
-                            <p class="del"><a href="javascript:" class="delBtn">移除商品</a></p><br><br>
+                            <p class="del"><a href="javascript:" class="delBtn">Delete Good</a></p><br><br>
                         </li>
                     </ul>
                 {% endfor %}
@@ -144,17 +144,17 @@
         <!--底部-->
         <div class="bar-wrapper">
             <div class="bar-right">
-                <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
-                <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-                <div class="calBtn"><a href="javascript:;">结算</a></div>
+                <div class="piece">Shopping List<strong class="piece_num">0</strong></div>
+                <div class="totalMoney">Subtotal <strong class="total_text">0.00</strong></div>
+                <div class="calBtn"><a href="javascript:;">Checkout</a></div>
             </div>
         </div>
     </section>
     <section class="model_bg"></section>
     <section class="my_model">
-        <p class="title">删除宝贝<span class="closeModel">X</span></p>
-        <p>您确认要删除该宝贝吗？</p>
-        <div class="opBtn"><a href="javascript:;" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
+        <p class="title">Delete Good<span class="closeModel">X</span></p>
+        <p>Are you sure you want to delete this good</p>
+        <div class="opBtn"><a href="javascript:;" class="dialog-sure">Yes</a><a href="javascript:;" class="dialog-close">   No</a></div>
     </section>
     <script src="{% static 'js/carts.js' %}">
     </script>

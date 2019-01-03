@@ -3,7 +3,7 @@
 <html xmlns="">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>我的订单</title>
+<title>My List</title>
 <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
@@ -67,20 +67,20 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
             <div class="collapse navbar-collapse"  id="aaaa">
                 <ul class="nav  navbar-nav">
                     {% if request.user.is_authenticated %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 [{{ request.user }}] 来 到  在 线 web 购 物 网 站！</B></li>
-                        <li><a href="{% url 'logout' %}">退出</a></li>
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B> [{{ request.user }}] Welcome to SIherit</B></li>
+                        <li><a href="{% url 'logout' %}">Exit</a></li>
                     {% else %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 来 到 在 线 web 购 物 网 站！</B></li>
-                        <li><a href="{% url 'login' %}">请登录</a></li>
-                        <li><a href="{% url 'register' %}">免费注册</a></li>
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>Welcome to SIherit!</B></li>
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a href="{% url 'register' %}">Sign On</a></li>
                     {% endif %}
                 </ul>
                 <div class="navbar-right collapse navbar-collapse" id="bbbb">
                     <ul class="nav  navbar-nav">
-                        <li><a href="{% url 'gouwuche' %}">   购物车      |</a></li>
-                        <li class="active"><a href="{% url 'dingdan' %}">   我的订单 |</a></li>
-                        <li><a href="{% url 'home' %}">   商品分类 |</a></li>
-                        <li><a href="http://www.baidu.com" target="_blank">精彩推荐</a></li>
+                        <li><a href="{% url 'gouwuche' %}">   Basket</a></li>
+                        <li class="active"><a href="{% url 'dingdan' %}">   Your Lists</a></li>
+                        <li><a href="{% url 'home' %}">   Shop by Department</a></li>
+                        <li><a href="http://www.baidu.com" target="_blank"> For You</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,14 +88,14 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
     </nav>
     <div class="goods-list">
         <table width="80%" border="0" cellspacing="0" cellpadding="0" id="main-tab">
-            <td align="center" valign="middle" class="borderright borderbottom">订单号</td>
-            <td align="center" valign="middle" class="borderright borderbottom">商品</td>
-            <td align="center" valign="middle" class="borderright borderbottom">价格</td>
-            <td align="center" valign="middle" class="borderright borderbottom">状态</td>
-            <td align="center" valign="middle" class="borderright borderbottom">数量</td>
-            <td align="center" valign="middle" class="borderright borderbottom">地址</td>
-            <td align="center" valign="middle" class="borderright borderbottom">联系人</td>
-            <td align="center" valign="middle" class="borderright borderbottom">购买时间</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Order Number</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Name</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Price</td>
+            <td align="center" valign="middle" class="borderright borderbottom">State</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Quantity</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Address</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Contacts</td>
+            <td align="center" valign="middle" class="borderright borderbottom">Purchase Date</td>
             {% for good_item in paginator.object_list %}
             <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
                 <td align="center" valign="middle" class="borderright borderbottom">{{ good_item.order_id }}</td>
@@ -115,13 +115,13 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
             {% if paginator.has_previous %}
                 <li>
                     <a href="{% url 'dingdan' %}?page={{ paginator.previous_page_number }}" aria-label="Previous">
-                        <span aria-hidden="true">上一页</span>
+                        <span aria-hidden="true">Previous Page</span>
                     </a>
                 </li>
             {% else %}
                 <li class="disabled">
                     <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">上一页</span>
+                        <span aria-hidden="true">Previous Page</span>
                     </a>
                 </li>
             {% endif %}
@@ -136,13 +136,13 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
             {% if paginator.has_next %}
                 <li>
                     <a href="{% url 'dingdan' %}?page={{ paginator.next_page_number }}" aria-label="Next">
-                        <span aria-hidden="true">下一页</span>
+                        <span aria-hidden="true">Next Page</span>
                     </a>
                 </li>
             {% else %}
                 <li class="disabled">
                     <a href="#" aria-label="Next">
-                        <span aria-hidden="true">下一页</span>
+                        <span aria-hidden="true">Next Page</span>
                     </a>
                 </li>
             {% endif %}
