@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html xmlns="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>我的购物车</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carts.css' %}">
+    <style type="text/css">
+        .navbar .nav > li .dropdown-menu{margin:0;}
+        .navbar .nav > li:hover .dropdown-menu{display:block;}
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+            color: #f5f5f5;
+            background-color: #ff6500;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+        body{overflow-x:hidden; background:#f2f0f5;}
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+        #main-tab td {
+            font-size: 14px;
+            line-height: 50px;
+        }
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
+            font-size:14px;
+        }
+        caption,th {
+            text-align:left;
+        }
+    </style>
+</head>
+<body style="background-color:antiquewhite;">
+    <nav class="navbar navbar-default"  style="background-color:#eabfae; height:52px">
+        <div class="container">
+            <!--这里制作LOGO和缩小页面后的展开按钮-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#aaaa" aria-expanded="false">
+                    <span style="color:hotpink"><b>展开</b></span>
+                </button>
+                <img src="{% static 'images/1.png' %}" height="40px";width="40px" align="lift">
+            </div>
+            <!--这里制作导航首页，论坛等各个按钮-->
+            <div class="collapse navbar-collapse"  id="aaaa">
+                <ul class="nav  navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 [{{ request.user }}] 来 到  在 线 web 购 物 网 站！</B></li>
+                        <li><a href="{% url 'logout' %}">退出</a></li>
+                    {% else %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 来 到 在 线 web 购 物 网 站！</B></li>
+                        <li><a href="{% url 'login' %}">请登录</a></li>
+                        <li><a href="{% url 'register' %}">免费注册</a></li>
+                    {% endif %}
+                </ul>
+                <div class="navbar-right collapse navbar-collapse" id="bbbb">
+                    <ul class="nav  navbar-nav">
+                        <li class="active"><a href="{% url 'gouwuche' %}">   购物车      |</a></li>
+                        <li><a href="{% url 'dingdan' %}">   我的订单 |</a></li>
+                        <li><a href="{% url 'home' %}">   商品分类 |</a></li>
+                        <li><a href="http://www.baidu.com" target="_blank">精彩推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id=tubiao; style="margin-left:250px;">
+        <img src="{% static 'images/biaozhi.png' %}" />
+        <h1 style="font-size:22px; color:#F60; margin-left:180px; margin-top:-50px"><b>购物车</b></h1>
+    </div>
+
+
+    <section class="cartMain">
+        <div class="cartMain_hd">
+            <ul class="order_lists cartTop">
+                <li class="list_chk">
+                    <!--所有商品全选-->
+                    <input type="checkbox" id="all" class="whole_check">
+                    <label for="all"></label>
+                    全选
+                </li>
+                <li class="list_con">商品信息</li>
+                <li class="list_price">单价</li>
+                <li class="list_amount">数量</li>
+                <li class="list_sum">金额</li>
+                <li class="list_op">操作</li>
+            </ul>
+        </div>
+
+        <div class="cartBox">
+            <div class="shop_info" style="background-color: #DDD">
+                <div class="all_check">
+                    <!--店铺全选-->
+                    <input type="checkbox" id="shop_a" class="shopChoice">
+                    <label for="shop_a" class="shop"></label>
+                </div>
+                <div class="shop_name" >
+                    店铺
+                </div>
+            </div>
+            <div class="order_content">
+                {% for item in goods_records %}
+                    <ul class="order_lists" style="background-color: white" data-id="{{ item.id }}">
+                        <li class="list_chk">
+                            <input type="checkbox" id="checkbox_{{ item.id }}" class="son_check">
+                            <label for="checkbox_{{ item.id }}"></label>
+                        </li>
+                        <li class="list_con">
+                            <div class="list_img"><a href="javascript:;"><img src="/{{ item.pic.url }}" alt=""></a></div>
+                            <div class="list_text"><a href="javascript:;">{{ item.discription }}</a></div>
+                        </li>
+                        <li class="list_price">
+                            <p class="price">￥{{ item.price }}</p>
+                        </li>
+                        <li class="list_price">
+                            <p class="price">{{ item.count }}</p>
+                        </li>
+                        <li class="list_sum">
+                            <p class="sum_price">￥{% widthratio item.count 1 item.price%}</p>
+                        </li>
+                        <li class="list_op">
+                            <p class="del"><a href="javascript:" class="delBtn">移除商品</a></p><br><br>
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!--底部-->
+        <div class="bar-wrapper">
+            <div class="bar-right">
+                <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
+                <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
+                <div class="calBtn"><a href="javascript:;">结算</a></div>
+            </div>
+        </div>
+    </section>
+    <section class="model_bg"></section>
+    <section class="my_model">
+        <p class="title">删除宝贝<span class="closeModel">X</span></p>
+        <p>您确认要删除该宝贝吗？</p>
+        <div class="opBtn"><a href="javascript:;" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
+    </section>
+    <script src="{% static 'js/carts.js' %}">
+    </script>
+</body>
+</html>
+

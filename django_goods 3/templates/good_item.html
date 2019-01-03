@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html xmlns="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>web二手信息购物网站</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+        background-color: #ff6500;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    div.good-item
+    {
+        width: 60%;
+        overflow: hidden;
+        margin: 80px auto;
+        border: solid 1px #ad6464;
+    }
+    div.good-item-right{
+        width: 50%;float: left;
+        margin-left: -6%;
+        padding: 10px;
+    }
+    div.good-item-right>p
+    {
+        margin-left: 6%;
+        min-height: 21px;
+        _height: 21px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        color: #3C3C3C;
+        margin-bottom: 20px;
+    }
+    div.good-item-right>p>span{
+        width: 120px;
+        display: inline-block;
+    }
+    div.good-item-right>p>button{
+        display: inline-block;
+        padding: .6em 1.1em;
+        font-size: 1.625rem;
+        text-decoration: none;
+        outline: none;
+        background-color: #FFD9BC;
+        color: #0f0f0f;
+        width: 46%;
+        margin-left: 2%;
+        margin-top: 10px;
+        border-radius: 3px;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        border: none;
+        -webkit-transition: -webkit-box-shadow .3s;
+        transition: box-shadow .3s;
+    }
+
+    div.good-item-right>p>button:hover
+    {
+        -webkit-box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        -webkit-transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        -webkit-animation: gelatine 0.5s 1;
+        animation: gelatine 0.5s 1;
+    }
+    div.good-item-title{
+        background-color: #ad6464;
+        font-size: 18px;
+        padding: 10px 20px;
+        color: #fff;
+        font-weight: normal;
+        margin: auto;
+    }
+</style>
+</head>
+<body style="background-color:antiquewhite;">
+    <nav class="navbar navbar-default"  style="background-color:#eabfae; height:52px">
+        <div class="container">
+            <!--这里制作LOGO和缩小页面后的展开按钮-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"   
+                    data-toggle="collapse" data-target="#aaaa" aria-expanded="false">  
+                    <span style="color:hotpink"><b>展开</b></span>
+                </button>  
+                <img src="{% static 'images/1.png' %}" height="40px";width="40px" align="lift">
+            </div> 
+            <!--这里制作导航首页，论坛等各个按钮-->
+            <div class="collapse navbar-collapse"  id="aaaa">  
+                <ul class="nav  navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 [{{ request.user }}] 来 到  在 线 web 购 物 网 站！</B></li>
+                        <li><a href="{% url 'logout' %}">退出</a></li>
+                    {% else %}
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp; 欢 迎 来 到 在 线 web 购 物 网 站！</B></li>
+                        <li><a href="{% url 'login' %}">请登录</a></li>
+                        <li><a href="{% url 'register' %}">免费注册</a></li>
+                    {% endif %}
+                </ul>
+                <div class="navbar-right collapse navbar-collapse" id="bbbb">
+                    <ul class="nav  navbar-nav">
+                        <li class="active"><a href="{% url 'gouwuche' %}">   购物车      |</a></li>
+                        <li><a href="{% url 'dingdan' %}">   我的订单 |</a></li>
+                        <li><a href="{% url 'home' %}">   商品分类 |</a></li>
+                        <li><a href="http://www.baidu.com" target="_blank">精彩推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="good-item">
+        <div class="good-item-title">
+            提交订单
+        </div>
+        <div style="width: 50%;float: left;padding: 10px 10px 10px 10px">
+            <img src="{{ good_item.pic }}" style="width: 80%;">
+        </div>
+        <div class="good-item-right" style="">
+            <p>类别:{{ good_item.get_classification_display }}</p>
+            <p>名称:{{ good_item.name }}</p>
+            <p>详情:{{ good_item.discription }}</p>
+            <p>价格:<span style="color: #F40;padding: 1px">¥{{ good_item.price }}</span></p>
+            <p>库存:{{ good_item.counts }}</p>
+            <p><span >收货地址:</span><input type="text" name="adress"></input></p>
+            <p><span >联系人手机号:</span><input type="text" name="phone_number"></input></p>
+            <p><span>购买数量：</span><input type="text" name="buy_count"></input></p>
+            <p><button style="color:#E5511D;" id="now_buy_btn">立即购买</button>
+                <button style="background-color: #F22D00;color: #FFF;" id="now_add_bus">加入购物车</button>
+            </p>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+    $(function() {
+        $("#now_buy_btn").click(function () {
+            var adress = $("input[name='adress']").val();
+            var phone_number = $("input[name='phone_number']").val();
+            var buy_count = $("input[name='buy_count']").val();
+            if(!$.isNumeric(phone_number) || phone_number.length!=11)
+            {
+                alert("请输入正确的联系人手机号");
+                return;
+            }
+            if(adress.length==0)
+            {
+                alert("请输入正确的收货地址");
+                return;
+            }
+            if (!$.isNumeric(phone_number))
+            {
+                alert("购买数量必须为整数");
+            }
+            if( buy_count > {{ good_item.counts }})
+            {
+                alert("购买数量不能超过库存量");
+                return;
+            }
+            var data = {"good_id":{{ good_item.id }}, "adress":adress, "phone_number":phone_number, "buy_count":buy_count, "type":0};
+            $.post("{% url 'goods-item' %}",data,function(result){
+                var err = result["code"];
+                alert(result["msg"]);
+                window.location.href='/';
+            });
+        });
+        $("#now_add_bus").click(function () {
+            var adress = $("input[name='adress']").val();
+            var phone_number = $("input[name='phone_number']").val();
+            var buy_count = $("input[name='buy_count']").val();
+            if(!$.isNumeric(phone_number) || phone_number.length!=11)
+            {
+                alert("请输入正确的联系人手机号");
+                return;
+            }
+            if(adress.length==0)
+            {
+                alert("请输入正确的收货地址");
+                return;
+            }
+            if (!$.isNumeric(phone_number))
+            {
+                alert("购买数量必须为整数");
+            }
+            if( buy_count > {{ good_item.counts }})
+            {
+                alert("购买数量不能超过库存量");
+                return;
+            }
+            var data = {"good_id":{{ good_item.id }}, "adress":adress, "phone_number":phone_number, "buy_count":buy_count, "type":-1};
+            $.post("{% url 'goods-item' %}",data,function(result){
+                var err = result["code"];
+                alert(result["msg"]);
+                window.location.href='/';
+            });
+        });
+    });
+</script>
+</html>
+
