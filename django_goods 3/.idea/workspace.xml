@@ -20,6 +20,7 @@
   </component>
   <component name="FUSProjectUsageTrigger">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <session id="-1601004534">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
@@ -52,6 +53,8 @@
           <entry key="HTML" value="21" />
           <entry key="Python" value="11" />
 =======
+=======
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <session id="-2061194459">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
@@ -80,12 +83,16 @@
         <counts>
           <entry key="HTML" value="8" />
           <entry key="PLAIN_TEXT" value="2" />
+<<<<<<< HEAD
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
+=======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -173,6 +180,8 @@
       </file>
     </leaf>
 =======
+=======
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -271,6 +280,9 @@
         </leaf>
       </split-second>
     </splitter>
+<<<<<<< HEAD
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
+=======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
   </component>
   <component name="FileTemplateManagerImpl">
@@ -316,6 +328,7 @@
         <option value="$PROJECT_DIR$/../dvenv/Lib/site-packages/google/cloud/storage/blob.py" />
         <option value="$PROJECT_DIR$/WebShop/admin.py" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/good_item.html" />
         <option value="$PROJECT_DIR$/django_goods/settings.py" />
         <option value="$PROJECT_DIR$/WebShop/system/storage.py" />
@@ -335,6 +348,8 @@
     <option name="width" value="1920" />
     <option name="height" value="1080" />
 =======
+=======
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         <option value="$PROJECT_DIR$/django_goods/urls.py" />
         <option value="$PROJECT_DIR$/django_goods/settings.py" />
         <option value="$PROJECT_DIR$/WebShop/system/storage.py" />
@@ -355,6 +370,7 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+<<<<<<< HEAD
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
   </component>
   <component name="ProjectFrameBounds">
@@ -363,6 +379,15 @@
     <option name="width" value="2562" />
     <option name="height" value="1577" />
   </component>
+=======
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1278" />
+    <option name="y" value="23" />
+    <option name="width" value="2562" />
+    <option name="height" value="1577" />
+  </component>
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -373,6 +398,7 @@
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
 <<<<<<< HEAD
               <item name="django_goods_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_goods_1" type="462c0819:PsiDirectoryNode" />
@@ -397,6 +423,21 @@
               <item name="django_goods_1" type="462c0819:PsiDirectoryNode" />
               <item name="WebShop" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+              <item name="django_goods 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_goods 3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_goods 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_goods 3" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_goods 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_goods 3" type="462c0819:PsiDirectoryNode" />
+              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
 =======
               <item name="django_goods 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_goods 3" type="462c0819:PsiDirectoryNode" />
@@ -496,6 +537,7 @@
       <method v="2" />
     </configuration>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list>
       <item itemvalue="Python.test" />
     </list>
@@ -504,6 +546,8 @@
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
+=======
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
 =======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
   </component>
@@ -528,10 +572,17 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-1920" y="-70" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17358893" />
+=======
+    <frame x="1278" y="23" width="2562" height="1577" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12711531" />
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
 =======
     <frame x="1278" y="23" width="2562" height="1577" extended-state="0" />
     <editor active="true" />
@@ -570,6 +621,7 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -586,6 +638,10 @@
 =======
   </component>
   <component name="editorHistoryManager">
+=======
+  </component>
+  <component name="editorHistoryManager">
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <entry file="file://$PROJECT_DIR$/custom_user/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -628,6 +684,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/media/img/TB1gr6qoMMPMeJjy1XcXXXpppXa_0-item_pic.jpg" />
     <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django_google_cloud_storage/__init__.py" />
+<<<<<<< HEAD
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
+=======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -647,6 +706,7 @@
     <entry file="file://$PROJECT_DIR$/static/media/img/linux.jpg" />
     <entry file="file://$PROJECT_DIR$/static/media/img/linux_S1CJz5c.jpg" />
     <entry file="file://$PROJECT_DIR$/WebShop/system/tmp/image.jpg">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -679,6 +739,10 @@
 =======
       <provider selected="true" editor-type-id="images" />
     </entry>
+=======
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <entry file="file://$PROJECT_DIR$/static/media/img/20190102172438_72.jpg" />
     <entry file="file://$PROJECT_DIR$/static/media/img/20190102172438_31.jpg" />
     <entry file="file://$PROJECT_DIR$/custom_user/urls.py">
@@ -692,6 +756,7 @@
     <entry file="file://$PROJECT_DIR$/static/media/img/2019/01/02/20190102224836_15.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/google/cloud/storage/blob.py" />
     <entry file="file://$PROJECT_DIR$/test/django-goods-f5ba432d1deb.json" />
@@ -771,6 +836,25 @@
     <entry file="file://$PROJECT_DIR$/WebShop/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/contrib/admin/templates/admin/auth/user/add_form.html" />
+    <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/contrib/admin/templates/admin/submit_line.html" />
+    <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/contrib/admin/templates/admin/change_list.html" />
+    <entry file="file://$PROJECT_DIR$/custom_user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1298">
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/img/icon-changelink.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.py" />
+    <entry file="file://$PROJECT_DIR$/WebShop/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
     <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/db/models/fields/__init__.py" />
     <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/core/files/storage.py" />
     <entry file="file://$PROJECT_DIR$/../dvenv/Lib/site-packages/django/db/models/fields/files.py" />
@@ -796,6 +880,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="58" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="58" />
+<<<<<<< HEAD
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
+=======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         </state>
       </provider>
@@ -803,6 +890,7 @@
     <entry file="file://$PROJECT_DIR$/WebShop/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
@@ -817,6 +905,16 @@
           </folding>
 =======
           <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+=======
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebShop/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         </state>
       </provider>
     </entry>
@@ -836,6 +934,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/django_goods/urls.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="405">
           <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
@@ -921,6 +1020,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+=======
+        <state relative-caret-position="510">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebShop/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -962,11 +1071,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="733">
           <caret line="114" column="83" lean-forward="true" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="83" />
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="161">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_goods/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dingdan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1118">
+          <caret line="150" column="7" lean-forward="true" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/gouwuche.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="132" column="45" lean-forward="true" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/good_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="114" column="83" lean-forward="true" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+=======
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
         <state relative-caret-position="551">
           <caret line="71" column="82" selection-start-line="71" selection-start-column="82" selection-end-line="71" selection-end-column="82" />
           <folding>
@@ -974,6 +1128,9 @@
             <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#li#0;n#!!top" expanded="true" />
+<<<<<<< HEAD
+>>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
+=======
 >>>>>>> a07bd58dd9b923f77bef570a6c02b6dbd3d8be8f
           </folding>
         </state>
