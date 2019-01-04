@@ -64,6 +64,11 @@ class LoginRequiredMixin(object):
         return login_required(view, login_url='/custom-user/login')
 
 
+class HelpView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, "help.html")
+
+
 class GouWuCheView(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user

@@ -2,18 +2,13 @@
 # -*- coding: utf-8 -*-
 __version__ = '1.0.0.0'
 
-"""
-@brief 简介 
-@details 详细信息
-@author  wuhuafeng
-@data    2018-03-02 
-"""
+
 import re
 from django import forms
 from django.core.exceptions import ValidationError
 
 def mobile_validate(value):
-    mobile_re = re.compile(r'^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$')
+    mobile_re = re.compile(r'^(07[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$')
     if not mobile_re.match(value):
         raise ValidationError('手机号码格式错误')
 

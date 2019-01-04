@@ -25,6 +25,7 @@ urlpatterns = [
     url('gouwuche/', GouWuCheView.as_view(), name='gouwuche'),
     url('dingdan/', DingDanView.as_view(), name='dingdan'),
     url('liuyan_save/', CommentView.as_view(), name='liuyan_save'),
+    url('help/', HelpView.as_view(), name="help"),
 ]
 
 # from django.views.static import serve

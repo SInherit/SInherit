@@ -23,6 +23,8 @@ class RegisterView(View):
             if UserProfile.objects.filter(username=user_name):
                 return render(request, "register.html", {"register_form": register_form, "msg": "用户已经存在"})
             email = request.POST.get("email")
+            if email.find('@soton.ac.uk')==-1:
+                return render(request, "register.html", {"register_form": register_form,"msg":"邮箱格式不对"})
             mobile = request.POST.get("mobile")
             pwd = request.POST.get("pwd")
             user_profile = UserProfile()
@@ -31,6 +33,7 @@ class RegisterView(View):
             user_profile.mobile = mobile
             user_profile.is_active = True
             user_profile.set_password(pwd)
+            user_profile.is_staff = True
             # user_profile.password = make_password(pwd)
             user_profile.save()
             return render(request, "login.html")
