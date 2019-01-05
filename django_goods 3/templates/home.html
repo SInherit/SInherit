@@ -56,8 +56,8 @@
             <div class="collapse navbar-collapse"  id="aaaa">  
                 <ul class="nav  navbar-nav">
                     {% if request.user.is_authenticated %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp[{{ request.user }}] Welcome to SIherit!</B></li>
-                        <li><a href="{% url 'logout' %}">退出</a></li>
+                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>[{{ request.user }}] Welcome to SIherit!</B></li>
+                        <li><a href="{% url 'logout' %}">Exit</a></li>
                     {% else %}
                         <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp;  Welcome to SIherit!</B></li>
                         <li><a href="{% url 'login' %}">Sign In</a></li>
@@ -66,10 +66,10 @@
                 </ul>
                 <div class="navbar-right collapse navbar-collapse" id="bbbb">
                     <ul class="nav  navbar-nav">
-                        <li><a href="/admin">   add new      |</a></li>
-                        <li><a href="{% url 'gouwuche' %}">   Basket      |</a></li>
-                        <li><a href="{% url 'dingdan' %}">   Your Lists |</a></li>
-                        <li class="active"><a href="{% url 'home' %}">   Shop by Department |</a></li>
+                        <li><a href="/admin">   Add New  </a></li>
+                        <li><a href="{% url 'gouwuche' %}">   Basket   </a></li>
+                        <li><a href="{% url 'dingdan' %}">   Your Lists</a></li>
+                        <li class="active"><a href="{% url 'home' %}">   Shop by Department</a></li>
                         <li><a href="{% url 'help' %}">Help</a></li>
                     </ul>
                 </div>
@@ -93,13 +93,13 @@
     <nav class="navbar navbar-default"  style="background-color:#F60;height:30px;width:70%;margin:auto;margin-top:40px;">
         <div style="float:left; width: 76%">
             <ul class="nav  navbar-nav">
-                <li class="active" style="font-family:宋体; font-size:18px; color:white; margin-left:45px; line-height:200%"><B>&nbsp;       主题市场</B></li>
-                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px" href="{% url 'home' %}?type=0"><b style="color:#FFF">服装首饰</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=1"><b style="color:#FFF">家电数码</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=2"><b style="color:#FFF">美食生鲜</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=3"><b style="color:#FFF">运动乐器</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=4"><b style="color:#FFF">日用百货</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=5"><b style="color:#FFF">美妆洗护</b></a></li>
+                <li class="active" style="font-family:宋体; font-size:18px; color:white; margin-left:45px; line-height:200%"><B>&nbsp;Theme Market</B></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px" href="{% url 'home' %}?type=0"><b style="color:#FFF">Costume & Fashion Jewelry</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=1"><b style="color:#FFF">Digital Appliances</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=2"><b style="color:#FFF">Cate</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=3"><b style="color:#FFF">Sports & Musical Instruments</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=4"><b style="color:#FFF">General Merchandise</b></a></li>
+                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=5"><b style="color:#FFF">Beauty Makeup & Healthy Care</b></a></li>
             </ul>
             <div class="resource-list">
                 {% for item in goods %}
@@ -108,7 +108,7 @@
                         <div class="detail-item" style="padding: 1px">
                             <span style="color: #F40;padding: 1px">¥</span>
                             <strong style="color: #F40;font-weight: 700;padding: 1px">{{ item.price }}</strong>
-                            <span style="float: right; color: #737373;font-size: 12px;padding: 1px">{{ item.has_sale }}人付款</span>
+                            <span style="float: right; color: #737373;font-size: 12px;padding: 1px">{{ item.has_sale }} Bought</span>
                             <p style="padding: 5px 0px;font-size: 12px">{{ item.discription }}</p>
                         </div>
                     </a>
@@ -118,14 +118,14 @@
 
         <div id="menu" style="background-color:#FFF;height:650px;width:24%;float:left;margin-top:30px">
             <div><img  src="{% static 'images/tu4.gif' %}" width="80px" height="80px" style="margin-left:80px; margin-top:60px" >
-            <a style=" margin-left:90px; margin-top:20px; color:red"><b>Hi！你好</b></a></div>
+            <a style=" margin-left:90px; margin-top:20px; color:red"><b>Hi！ Welcome SIherit</b></a></div>
             <div class="btn-toolbar" role="toolbar" style="margin-left:25px; margin-top:20px"></div>
-            <textarea style="width: 100%" type="text" placeholder="说点什么吧?" id="saywhat"></textarea>
+            <textarea style="width: 100%" type="text" placeholder="commend something?" id="saywhat"></textarea>
             <div class="tabbable" style="font-size:9px" id="tabs-39579">
-                <button style="float: right" id="saybtn">发表</button>
+                <button style="float: right" id="saybtn">comment</button>
                 <ul class="nav nav-tabs">
                     <li class="active">
-                         <a href="#panel-300337" data-toggle="tab"><b>留言</b></a>
+                         <a href="#panel-300337" data-toggle="tab"><b>leave words</b></a>
                     </li>
                 </ul>
             </div>
