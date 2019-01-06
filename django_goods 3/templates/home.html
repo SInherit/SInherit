@@ -41,11 +41,12 @@
     }
 </style> -->
 <style type="text/css">
+    
     .navbar .nav > li > .loginBtn {padding-right: 0px;}
     .navbar .nav > li > .signupBtn {padding-left: 0px;}
-    .navbar .nav > li > .slash {padding-left: 2px; padding-right: 2px;}
+    .navbar .nav > .slash {padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; color: #fff}
     .navbar .nav > li > .subNavBtn {padding-left: 2px; padding-right: 2px;}
-    .itemThumbnail {padding: 15px;}
+    .itemThumbnail {padding: 15px; background-color: WhiteSmoke}
     .itemThumbnail>h5 {margin-top: 0px}
     .itemThumbnail>p {padding:10px 10px 0 10px;}
     .itemThumbnail>h4 {margin-bottom: 0;}
@@ -53,7 +54,29 @@
     .itemContainer:nth-child(3n+5) {clear: both;}
     .comPhoto {width: 80px; height: 80px;margin-left:auto; margin-right:auto}
     .comName {margin-top: 10px;text-align: center;}
-    .comBtn {margin-bottom: 5px;float: right;}
+    .comBtn {margin-bottom: 5px;float: right; background-color: #fc7949;border-color: #fc7949}
+    .comBtn:hover {background-color: #ff9334;border-color: #ff9334}
+    .navbar-default .navbar-brand {color: #fff;}
+    .navbar-default .navbar-brand:hover {color: #fff;}
+    .navbar-default .navbar-nav>li>a:hover {color: #fff; background-color: #fca649}
+    .navbar-default .navbar-nav>li>a {color: #fff;}
+    .inputArea {width: 100%; border-radius: 3px; border-color: silver}
+    .inputArea::placeholder {color: lightgray;}
+    .btn-info {
+                color: #fff;
+                background-color: #fc7949;
+                border-color: #fc7949;}
+    .btn-info > a {
+                color: #fff;
+                background-color: #fc7949;
+                border-color: #fc7949;}
+    .btn-info:hover {color: #fff;
+                     background-color: #fc831a;
+                     border-color: #fc831a;}
+    .navbar-default {background-color: #fc7949;border-color: #fc7949}
+    .subNav {background-color: #ff9757;border-color: #ff9757}
+    .footerContent {margin-top: 5px}
+    .footerContent > p {margin-bottom: 0px; color: #fff}
 </style>
 </head>
 <body>
@@ -66,7 +89,7 @@
                     Menu
                 </button>
             <!--Navigation Bar Logo-->
-            <a class="navbar-brand" href="#">SIherit</a>  
+            <span class="navbar-brand pageLogo">SIherit</span>  
             </div>
             <!--Navigation Bar Items-->
             <div class="collapse navbar-collapse" id="navigationButtons">
@@ -91,7 +114,7 @@
                                         <li><a class="signupBtn" href="{% url 'register' %}">Sign Up</a></li>
                                     {% endif %}
                             </ul>
-                        </div>
+                    </div>
             </div>
 
         </div>
@@ -103,30 +126,30 @@
             <!--Left Contents: Navbar and item list-->
             <div class="col-md-9 col-lg-9 col-xl-9">
                 <!-- Sort navigation bar -->
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default subNav">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sortby" aria-expanded="false" style="float: left;">
                             Sort By
                     </button>                   
                 <div class="collapse navbar-collapse" id="sortby">
                     <ul class="nav navbar-nav">
                         <li><a class="subNavBtn" href="">All</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=0">Clothing and Accessories</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=1">Eletricals</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=2">Food</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=3">Sport and Leisure</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=4">Furniture</a></li>
-                        <li><a class="slash">/</a></li>
+                        <li class="slash">/</li>
                         <li><a class="subNavBtn" href="{% url 'home' %}?type=5">Beauty</a></li>
                     </ul>
                 </div>                                      
         </nav>
                 <!-- Items list -->
-               <!-- <div class="container"> -->
+                
                     {% for item in goods %}
                     <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
                             <div class="thumbnail itemThumbnail">
@@ -144,7 +167,7 @@
                                 </div>
                             </div>
                     {% endfor %}
-                <!--/div> <!-- Items list -->
+                 <!-- Items list -->
                 <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
                 <div class="thumbnail itemThumbnail">
 						<h5><strong>{{ item.name }}</strong></h5>
@@ -160,20 +183,6 @@
 						</div>
                     </div>
                 </div>
-                <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
-                        <div class="thumbnail itemThumbnail">
-                                <h5><strong>定制旅游</strong></h5>
-                                <img src="https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg"/>
-                                <p>定制旅游是一种国外非常流行的旅游方式，是根据旅游者的需求，以旅游者为主导进行旅游行动流程的设计。通俗的说就是根据自己的喜好和需求定制行程的旅行方式。......</p>
-                                <div class="row">
-                                <button class="btn btn-info pull-right" style="margin-right:15px;">
-                                    了解看看
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-
             </div> <!--Left Contents: Navbar and item list-->
 
 <!-- <form class="bs-example bs-example-form" role="form" >
@@ -192,10 +201,8 @@
             <div class="col-md-3 col-lg-3 col-xl-3">
                  <!-- Comment session-->
                  <div id="menu">
-                        <div><img  src="{% static 'images/tu4.gif' %}" class="comPhoto center-block"></div>
-                        <div class="comName"><a>Welcome to SIherit!</a></div>
                         <div class="btn-toolbar" role="toolbar" style="margin-left:15px; margin-top:10px"></div>
-                        <textarea style="width: 100%" type="text" placeholder="Looking for anything?" id="saywhat"></textarea>
+                        <textarea class="inputArea" type="text" placeholder="Looking for something?" id="saywhat"></textarea>
                         <div class="tabbable" style="font-size:9px" id="tabs-39579">
                             <button class="btn btn-default btn-xs btn-primary comBtn" id="saybtn">Send</button>
                             <ul class="nav nav-tabs">
@@ -207,8 +214,8 @@
                         <ul style="list-style: none;padding: 6px" id="say-list">
                             {% for item in commends %}
                                 <li style="border-bottom: 1px dashed; font-size: 12px" data="{{ item.id }}">
-                                    <span style="margin-top: 5px"><strong>{{ item.user }}</strong>({{ item.create_at }}):</span>
-                                    <p style="height:auto;word-break:break-all; color: #23527c;margin-bottom:5px;margin-top:5px;">{{ item.discription }}</p>
+                                    <span style="margin-top: 5px; color: #fc7949"><strong>{{ item.user }}</strong></span><span style="color: silver">({{ item.create_at }}):</span>
+                                    <p style="height:auto;word-break:break-all; color: gray;margin-bottom:5px;margin-top:5px;">{{ item.discription }}</p>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -217,6 +224,15 @@
                    
         </div><!--row-->                    
     </div> <!-- container -->
+    <!--Footer-->
+    <footer class="nav navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="footerContent">
+            <p>COMP6244 - Cloud Application Development</p>
+            <p>Team T 2018/19</p>
+            </div>
+        </div>
+    </footer><!--Footer-->
 </body>
 <script type="text/javascript">
     $(function () {
