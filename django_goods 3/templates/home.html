@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SIherit</title>
-<script type="text/javascript" src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-<style type="text/css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- <style type="text/css">
     .navbar .nav > li .dropdown-menu{margin:0;}
     .navbar .nav > li:hover .dropdown-menu{display:block;}
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -39,106 +39,184 @@
     a:hover{
         text-decoration: none;
     }
+</style> -->
+<style type="text/css">
+    .navbar .nav > li > .loginBtn {padding-right: 0px;}
+    .navbar .nav > li > .signupBtn {padding-left: 0px;}
+    .navbar .nav > li > .slash {padding-left: 2px; padding-right: 2px;}
+    .navbar .nav > li > .subNavBtn {padding-left: 2px; padding-right: 2px;}
+    .itemThumbnail {padding: 15px;}
+    .itemThumbnail>h5 {margin-top: 0px}
+    .itemThumbnail>p {padding:10px 10px 0 10px;}
+    .itemThumbnail>h4 {margin-bottom: 0;}
+    .itemContainer {padding: 5px;}
+    .itemContainer:nth-child(3n+5) {clear: both;}
+    .comPhoto {width: 80px; height: 80px;margin-left:auto; margin-right:auto}
+    .comName {margin-top: 10px;text-align: center;}
+    .comBtn {margin-bottom: 5px;float: right;}
 </style>
 </head>
-<body style="background-color:antiquewhite;">
-    <nav class="navbar navbar-default"  style="background-color:#eabfae; height:52px">
-        <div class="container">
-            <!--这里制作LOGO和缩小页面后的展开按钮-->
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed"   
-                    data-toggle="collapse" data-target="#aaaa" aria-expanded="false">  
-                    <span style="color:hotpink"><b>spread</b></span>
-                </button>  
-                <img src="{% static 'images/1.png' %}" height="40px";width="40px" align="lift">
-            </div> 
-            <!--这里制作导航首页，论坛等各个按钮-->
-            <div class="collapse navbar-collapse"  id="aaaa">  
-                <ul class="nav  navbar-nav">
-                    {% if request.user.is_authenticated %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp[{{ request.user }}] Welcome to SIherit!</B></li>
-                        <li><a href="{% url 'logout' %}">退出</a></li>
-                    {% else %}
-                        <li class="active" style="font-family:华文行楷; font-size:24px; color:red; line-height:200%"><B>&nbsp;  Welcome to SIherit!</B></li>
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a href="{% url 'register' %}">Sign On</a></li>
-                    {% endif %}
-                </ul>
-                <div class="navbar-right collapse navbar-collapse" id="bbbb">
-                    <ul class="nav  navbar-nav">
-                        <li><a href="/admin">   add new      |</a></li>
-                        <li><a href="{% url 'gouwuche' %}">   Basket      |</a></li>
-                        <li><a href="{% url 'dingdan' %}">   Your Lists |</a></li>
-                        <li class="active"><a href="{% url 'home' %}">   Shop by Department |</a></li>
-                        <li><a href="{% url 'help' %}">Help</a></li>
+            <!--Collapsing Menu Button-->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationButtons" aria-expanded="false">  
+                    Menu
+                </button>
+            <!--Navigation Bar Logo-->
+            <a class="navbar-brand" href="#">SIherit</a>  
+            </div>
+            <!--Navigation Bar Items-->
+            <div class="collapse navbar-collapse" id="navigationButtons">
+                    <div class="navbar-left">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="{% url 'home' %}">Home</a></li>
+                        <li class=""><a href="{% url 'gouwuche' %}">Basket</a></li>
+                        <li class=""><a href="{% url 'dingdan' %}">My Lists</a></li>
+                        <li class=""><a href="/admin">New Offer</a></li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div style="padding: 60px 560px 10px; width:100%" >
-        <form class="bs-example bs-example-form" role="form" >
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="input-group">
-                        <input type="text" class="form-control"  placeholder="三星Note8新品上市"  style="border-top-left-radius: 17px;  border-bottom-left-radius: 17px; border-color:#F60" >
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"  style=" background-color:#F60">搜索</button>
-                            </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </form>
-    </div>
-    <nav class="navbar navbar-default"  style="background-color:#F60;height:30px;width:70%;margin:auto;margin-top:40px;">
-        <div style="float:left; width: 76%">
-            <ul class="nav  navbar-nav">
-                <li class="active" style="font-family:宋体; font-size:18px; color:white; margin-left:45px; line-height:200%"><B>&nbsp;       主题市场</B></li>
-                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px" href="{% url 'home' %}?type=0"><b style="color:#FFF">服装首饰</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=1"><b style="color:#FFF">家电数码</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=2"><b style="color:#FFF">美食生鲜</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=3"><b style="color:#FFF">运动乐器</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=4"><b style="color:#FFF">日用百货</b></a></li>
-                <li><a style="line-height:3%;font-size:16px " href="{% url 'home' %}?type=5"><b style="color:#FFF">美妆洗护</b></a></li>
-            </ul>
-            <div class="resource-list">
-                {% for item in goods %}
-                    <a class="resource-item" href="{% url 'goods-item' %}?id={{ item.id }}">
-                        <img src="{{ item.pic }}" alt="######" style="width: 200px;height: 200px">
-                        <div class="detail-item" style="padding: 1px">
-                            <span style="color: #F40;padding: 1px">¥</span>
-                            <strong style="color: #F40;font-weight: 700;padding: 1px">{{ item.price }}</strong>
-                            <span style="float: right; color: #737373;font-size: 12px;padding: 1px">{{ item.has_sale }}人付款</span>
-                            <p style="padding: 5px 0px;font-size: 12px">{{ item.discription }}</p>
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-        </div>
+                    </div>
 
-        <div id="menu" style="background-color:#FFF;height:650px;width:24%;float:left;margin-top:30px">
-            <div><img  src="{% static 'images/tu4.gif' %}" width="80px" height="80px" style="margin-left:80px; margin-top:60px" >
-            <a style=" margin-left:90px; margin-top:20px; color:red"><b>Hi！你好</b></a></div>
-            <div class="btn-toolbar" role="toolbar" style="margin-left:25px; margin-top:20px"></div>
-            <textarea style="width: 100%" type="text" placeholder="说点什么吧?" id="saywhat"></textarea>
-            <div class="tabbable" style="font-size:9px" id="tabs-39579">
-                <button style="float: right" id="saybtn">发表</button>
-                <ul class="nav nav-tabs">
-                    <li class="active">
-                         <a href="#panel-300337" data-toggle="tab"><b>留言</b></a>
-                    </li>
-                </ul>
+                    <div class="navbar-right">
+                            <ul class="nav navbar-nav">
+                                    {% if request.user.is_authenticated %}
+                                        <li class=""><a>[{{ request.user }}] Welcome to SIherit!</a></li>
+                                        <li class=""><a href="{% url 'logout' %}">Log Out</a></li>
+                                    {% else %}
+                                        <li class=""><a>Welcome to SIherit!</a></li>
+                                        <li><a class="loginBtn" href="{% url 'login' %}">Login In</a></li>
+                                        <li><a class="slash">/</a></li>
+                                        <li><a class="signupBtn" href="{% url 'register' %}">Sign Up</a></li>
+                                    {% endif %}
+                            </ul>
+                        </div>
             </div>
-            <ul style="list-style: none;padding: 6px" id="say-list">
-                {% for item in commends %}
-                    <li style="border-bottom: 1px dashed rgba(240,150,102,0.28);font-size: 12px" data="{{ item.id }}">
-                        <span><strong>{{ item.user }}</strong>({{ item.create_at }}):</span>
-                        <p style="height:auto;word-break:break-all; color: #23527c;">{{ item.discription }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
+
         </div>
-    </nav>
+    </nav><!--Navigation Bar-->
+
+    <!-- Main Contents -->
+    <div class="container">
+        <div class="row">
+            <!--Left Contents: Navbar and item list-->
+            <div class="col-md-9 col-lg-9 col-xl-9">
+                <!-- Sort navigation bar -->
+            <nav class="navbar navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sortby" aria-expanded="false" style="float: left;">
+                            Sort By
+                    </button>                   
+                <div class="collapse navbar-collapse" id="sortby">
+                    <ul class="nav navbar-nav">
+                        <li><a class="subNavBtn" href="">All</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=0">Clothing and Accessories</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=1">Eletricals</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=2">Food</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=3">Sport and Leisure</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=4">Furniture</a></li>
+                        <li><a class="slash">/</a></li>
+                        <li><a class="subNavBtn" href="{% url 'home' %}?type=5">Beauty</a></li>
+                    </ul>
+                </div>                                      
+        </nav>
+                <!-- Items list -->
+                <div class="container">
+                    {% for item in goods %}
+                    <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
+                            <div class="thumbnail itemThumbnail">
+                                    <h5><strong>{{ item.name }}</strong></h5>
+                                    <img src="{{ item.pic }}"/>
+                                    <h4>Price: £{{ item.price }}</h4>
+                                    <p>{{ item.discription }}</p>
+                                    <div class="row">
+                                    <button class="btn btn-info pull-right" style="margin-right:15px;">
+                                        <a href="{% url 'goods-item' %}?id={{ item.id }}">
+                                        Details
+                                        </a>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div> <!-- Items list -->
+                <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
+                <div class="thumbnail itemThumbnail">
+						<h5><strong>{{ item.name }}</strong></h5>
+                        <img src="{{ item.pic }}"/>
+                        <h4>Price: £{{ item.price }}</h4>
+						<p>{{ item.discription }}</p>
+						<div class="row">
+						<button class="btn btn-info pull-right" style="margin-right:15px;">
+                            <a href="{% url 'goods-item' %}?id={{ item.id }}">
+                            Details
+                            </a>
+						</button>
+						</div>
+                    </div>
+                </div>
+                <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
+                        <div class="thumbnail itemThumbnail">
+                                <h5><strong>定制旅游</strong></h5>
+                                <img src="https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg"/>
+                                <p>定制旅游是一种国外非常流行的旅游方式，是根据旅游者的需求，以旅游者为主导进行旅游行动流程的设计。通俗的说就是根据自己的喜好和需求定制行程的旅行方式。......</p>
+                                <div class="row">
+                                <button class="btn btn-info pull-right" style="margin-right:15px;">
+                                    了解看看
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+            </div> <!--Left Contents: Navbar and item list-->
+
+<!-- <form class="bs-example bs-example-form" role="form" >
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control"  placeholder="三星Note8新品上市"  style="border-top-left-radius: 17px;  border-bottom-left-radius: 17px; border-color:#F60" >
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"  style=" background-color:#F60">搜索</button>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </form> -->
+            <!--Right Content: Comment seesion-->
+            <div class="col-md-3 col-lg-3 col-xl-3">
+                 <!-- Comment session-->
+                 <div id="menu">
+                        <div><img  src="{% static 'images/tu4.gif' %}" class="comPhoto center-block"></div>
+                        <div class="comName"><a>Welcome to SIherit!</a></div>
+                        <div class="btn-toolbar" role="toolbar" style="margin-left:15px; margin-top:10px"></div>
+                        <textarea style="width: 100%" type="text" placeholder="Looking for anything?" id="saywhat"></textarea>
+                        <div class="tabbable" style="font-size:9px" id="tabs-39579">
+                            <button class="btn btn-default btn-xs btn-primary comBtn" id="saybtn">Send</button>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                     <a href="#panel-300337" data-toggle="tab">Comments</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul style="list-style: none;padding: 6px" id="say-list">
+                            {% for item in commends %}
+                                <li style="border-bottom: 1px dashed; font-size: 12px" data="{{ item.id }}">
+                                    <span style="margin-top: 5px"><strong>{{ item.user }}</strong>({{ item.create_at }}):</span>
+                                    <p style="height:auto;word-break:break-all; color: #23527c;margin-bottom:5px;margin-top:5px;">{{ item.discription }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                </div><!-- Comment session-->
+            </div><!--Right Content: Comment seesion-->
+                   
+        </div><!--row-->                    
+    </div> <!-- container -->
 </body>
 <script type="text/javascript">
     $(function () {
