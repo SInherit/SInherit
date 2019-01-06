@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
+from django.contrib.auth.models import Group
 
 # Create your views here.
 class RegisterView(View):
@@ -21,10 +22,10 @@ class RegisterView(View):
         if register_form.is_valid():
             user_name = request.POST.get("uname")
             if UserProfile.objects.filter(username=user_name):
-                return render(request, "register.html", {"register_form": register_form, "msg": "用户已经存在"})
+                return render(request, "register.html", {"register_form": register_form, "msg": "User already exists"})
             email = request.POST.get("email")
             if email.find('@soton.ac.uk')==-1:
-                return render(request, "register.html", {"register_form": register_form,"msg":"邮箱格式不对"})
+                return render(request, "register.html", {"register_form": register_form,"msg":"The mailbox format is incorrect."})
             mobile = request.POST.get("mobile")
             pwd = request.POST.get("pwd")
             user_profile = UserProfile()
@@ -36,6 +37,8 @@ class RegisterView(View):
             user_profile.is_staff = True
             # user_profile.password = make_password(pwd)
             user_profile.save()
+            mygroup = Group.objects.get(name='sell')
+            user_profile.groups.add(mygroup)
             return render(request, "login.html")
         else:
             return render(request, "register.html", {"register_form": register_form})
@@ -75,8 +78,8 @@ class LoginView(View):
                     login(request, user)
                     return HttpResponseRedirect(reverse("home"))
                 else:
-                    return render(request, "login.html", {"msg": "用户未激活！"})
+                    return render(request, "login.html", {"msg": "user not active！"})
             else:
-                return render(request, "login.html", {"msg": "用户名或密码错误！"})
+                return render(request, "login.html", {"msg": "error with id/password！"})
         else:
             return render(request, "login.html", {"login_form": login_form})

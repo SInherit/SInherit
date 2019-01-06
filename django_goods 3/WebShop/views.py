@@ -50,8 +50,8 @@ class GoodsDetail(View):
         except Exception as e:
             return HttpResponse(json.dumps({"code": -1, "msg": "%s" % e}), content_type = 'application/json')
         if _type == 0:
-            return HttpResponse(json.dumps({"code": 0, "msg": "购买成功,请等待发货"}), content_type = 'application/json')
-        return HttpResponse(json.dumps({"code": 0, "msg": "添加购物车成功"}), content_type = 'application/json')
+            return HttpResponse(json.dumps({"code": 0, "msg": "purchase successfully,wait for reply"}), content_type = 'application/json')#wogai
+        return HttpResponse(json.dumps({"code": 0, "msg": "adding list successfully"}), content_type = 'application/json')#wogai
 
 
 class LoginRequiredMixin(object):
@@ -116,7 +116,7 @@ class CommentView(View):
 
     def post(self, request):
         try:
-            user_name = "游客"
+            user_name = "visitor"   #wogai
             if request.user.is_authenticated:
                 user_name = request.user.username
             des = request.POST.get("des")

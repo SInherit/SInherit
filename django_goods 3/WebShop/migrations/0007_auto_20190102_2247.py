@@ -18,13 +18,13 @@ class Migration(migrations.Migration):
             name='GoodsImage',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('online_image_url', models.URLField(verbose_name='第三方url地址')),
+                ('online_image_url', models.URLField(verbose_name='third party url address')),
                 ('goods', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='WebShop.GoodsRecord')),
             ],
         ),
         migrations.AlterField(
             model_name='goods',
             name='pic',
-            field=models.ImageField(storage=WebShop.system.storage.ImageStorage(), upload_to='img/%Y/%m/%d', verbose_name='图片'),
+            field=models.ImageField(storage=WebShop.system.storage.ImageStorage(), upload_to='img/%Y/%m/%d', verbose_name='image'),
         ),
     ]

@@ -22,7 +22,7 @@ class GoodsAdmin(admin.ModelAdmin):
     def show_image(self, obj):
         """自定义列表字段"""
         return format_html("<a href='{0}'><img src='{0}' style='width:50px;height:50px;'></img> </a>".format(obj.pic))
-    show_image.short_description = '图片'
+    show_image.short_description = 'image'
 
 
 class GoodsRecordAdmin(admin.ModelAdmin):
@@ -41,9 +41,9 @@ class GoodsRecordAdmin(admin.ModelAdmin):
         """自定义列表字段"""
         return format_html("<a href='{0}'><img src='{0}' style='width:50px;height:50px;'></img> </a>".format(obj.pic))
 
-    show_image.short_description = '图片'
+    show_image.short_description = 'image'
 
-admin.site.site_header = '在线web购物管理系统'
-admin.site.site_title = '在线web购物管理系统'
+admin.site.site_header = 'online web shopping management'
+admin.site.site_title = 'online web shopping management'
 admin.site.register(Goods, GoodsAdmin)
 admin.site.register(GoodsRecord, GoodsRecordAdmin)
