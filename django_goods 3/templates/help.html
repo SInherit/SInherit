@@ -40,8 +40,7 @@
         text-decoration: none;
     }
 </style>-->
-<style type="text/css">
-    
+<style type="text/css">    
     .navbar .nav > li > .loginBtn {padding-right: 0px;}
     .navbar .nav > li > .signupBtn {padding-left: 0px;}
     .navbar .nav > .slash {padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; color: #fff}
@@ -77,9 +76,11 @@
     .subNav {background-color: #ff9757;border-color: #ff9757}
     .footerContent {margin-top: 5px}
     .footerContent > p {margin-bottom: 0px; color: #fff}
+    .helpContainer {padding-left: 10px; color: white;}
+    .helpContent {background-color:#fc7949; margin-top:40px;margin: 10px;}
 </style>
 </head>
-<body style="background-color:antiquewhite;">
+<body>
     <!--Navigation Bar-->
     <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -120,12 +121,11 @@
             </div>
         </nav><!--Navigation Bar-->
 
-    <nav class="navbar navbar-default"  style="background-color:#F60;width:70%;margin:auto;margin-top:40px;">
-        <p>Your E-mail address must be @soton.ac.uk, otherwise you cannot get access to register.</p>
-        <p>Tel: (Ex: +44 0123 4567 890)</p>
-        <p></p>
-        <p></p>
-        <p></p>
-    </nav>
+        <div class="container helpContainer">
+                <nav class="navbar navbar-default" class="helpContent" style="padding: 10px;">
+                        <p>Your E-mail address must be @soton.ac.uk, otherwise you cannot get access to register.</p>
+                        <p>Tel: (Ex: +44 0123 4567 890)</p>
+                </nav>
+        </div>
 </body>
 </html>

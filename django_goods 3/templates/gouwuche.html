@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/carts.css' %}">
-<!--    <style type="text/css">
+    <style type="text/css">
         .navbar .nav > li .dropdown-menu{margin:0;}
         .navbar .nav > li:hover .dropdown-menu{display:block;}
         .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -42,8 +42,8 @@
         caption,th {
             text-align:left;
         }
-    </style>-->
-    <style type="text/css">
+    
+
     
         .navbar .nav > li > .loginBtn {padding-right: 0px;}
         .navbar .nav > li > .signupBtn {padding-left: 0px;}
@@ -123,20 +123,20 @@
         </div>
     </nav><!--Navigation Bar-->
 
-    <div id=tubiao; style="margin-left:250px;">
+    <!--<div id=tubiao; style="margin-left:250px;">
         <img src="{% static 'images/biaozhi.png' %}" />
         <h1 style="font-size:22px; color:#F60; margin-left:180px; margin-top:-50px"><b>Basket</b></h1>
-    </div>
+    </div>-->
 
 
     <section class="cartMain">
         <div class="cartMain_hd">
             <ul class="order_lists cartTop">
                 <li class="list_chk">
-                    <!--所有商品全选-->
+                    <!--Select All Items-->
                     <input type="checkbox" id="all" class="whole_check">
                     <label for="all"></label>
-                    全选
+                    Select All
                 </li>
                 <li class="list_con">Goods Info</li>
                 <li class="list_price">Price</li>
@@ -149,7 +149,7 @@
         <div class="cartBox">
             <div class="shop_info" style="background-color: #DDD">
                 <div class="all_check">
-                    <!--店铺全选-->
+                    <!--Select All Shops-->
                     <input type="checkbox" id="shop_a" class="shopChoice">
                     <label for="shop_a" class="shop"></label>
                 </div>
@@ -169,13 +169,13 @@
                             <div class="list_text"><a href="javascript:;">{{ item.discription }}</a></div>
                         </li>
                         <li class="list_price">
-                            <p class="price">￥{{ item.price }}</p>
+                            <p class="price">£{{ item.price }}</p>
                         </li>
                         <li class="list_price">
                             <p class="price">{{ item.count }}</p>
                         </li>
                         <li class="list_sum">
-                            <p class="sum_price">￥{% widthratio item.count 1 item.price%}</p>
+                            <p class="sum_price">£{% widthratio item.count 1 item.price%}</p>
                         </li>
                         <li class="list_op">
                             <p class="del"><a href="javascript:" class="delBtn">Delete Good</a></p><br><br>
@@ -185,12 +185,12 @@
             </div>
         </div>
 
-        <!--底部-->
+        <!--Comfirm Bar-->
         <div class="bar-wrapper">
             <div class="bar-right">
                 <div class="piece">Shopping List<strong class="piece_num">0</strong></div>
                 <div class="totalMoney">Subtotal <strong class="total_text">0.00</strong></div>
-                <div class="calBtn"><a href="javascript:;">Checkout</a></div>
+                <div class="calBtn"><a href="javascript:;">Comfirm</a></div>
             </div>
         </div>
     </section>
@@ -200,6 +200,16 @@
         <p>Are you sure you want to delete this good</p>
         <div class="opBtn"><a href="javascript:;" class="dialog-sure">Yes</a><a href="javascript:;" class="dialog-close">   No</a></div>
     </section>
+
+    <!--Footer-->
+    <footer class="nav navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <div class="footerContent">
+                <p>COMP6244 - Cloud Application Development</p>
+                <p>Team T 2018/19</p>
+                </div>
+            </div>
+        </footer><!--Footer-->
     <script src="{% static 'js/carts.js' %}">
     </script>
 </body>
