@@ -169,21 +169,6 @@
                             </div>
                     {% endfor %}
                  <!-- Items list -->
-                <div class="itemContainer col-lg-4 col-xl-4 col-md-4">
-                <div class="thumbnail itemThumbnail">
-						<h5><strong>{{ item.name }}</strong></h5>
-                        <img src="{{ item.pic }}"/>
-                        <h4>Price: £{{ item.price }}</h4>
-						<p>{{ item.discription }}</p>
-						<div class="row">
-						<button class="btn btn-info pull-right" style="margin-right:15px;">
-                            <a href="{% url 'goods-item' %}?id={{ item.id }}">
-                            Details
-                            </a>
-						</button>
-						</div>
-                    </div>
-                </div>
             </div> <!--Left Contents: Navbar and item list-->
 
 <!-- <form class="bs-example bs-example-form" role="form" >
