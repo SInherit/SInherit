@@ -1,0 +1,24 @@
+<ul>
+    {% for item in paginator.object_list %}
+        <li>{{ user.name }}-{{ user.age }}</li>
+    {% endfor %}
+
+    {% if users.has_previous %}
+        <a href="/index?p={{ users.previous_page_number }}">Last Page</a>
+    {% endif %}
+
+    {% for number in users.paginator.pager_num_range %}
+        {% if number == users.number %}
+            <a href="/index?p={{ number }}" style="font-size: 33px">{{ number }}</a>
+        {% else %}
+            <a href="/index?p={{ number }}" >{{ number }}</a>
+        {% endif %}
+
+    {% endfor %}
+
+
+    {% if users.has_next %}
+        <a href="/index?p={{ users.next_page_number }}">Next Page</a>
+    {% endif %}
+    <span>{{ users.number }} /{{ users.paginator.num_pages }}</span>
+</ul>

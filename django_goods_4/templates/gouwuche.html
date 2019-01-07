@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html xmlns="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Basket</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carts.css' %}">
+    <style type="text/css">
+        .navbar .nav > li .dropdown-menu{margin:0;}
+        .navbar .nav > li:hover .dropdown-menu{display:block;}
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+            color: #f5f5f5;
+            background-color: #ff6500;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+        body{overflow-x:hidden; background:#f2f0f5;}
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+        #main-tab td {
+            font-size: 14px;
+            line-height: 50px;
+        }
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
+            font-size:14px;
+        }
+        caption,th {
+            text-align:left;
+        }
+    
+
+    
+        .navbar .nav > li > .loginBtn {padding-right: 0px;}
+        .navbar .nav > li > .signupBtn {padding-left: 0px;}
+        .navbar .nav > .slash {padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; color: #fff}
+        .navbar .nav > li > .subNavBtn {padding-left: 2px; padding-right: 2px;}
+        .itemThumbnail {padding: 15px; background-color: WhiteSmoke}
+        .itemThumbnail>h5 {margin-top: 0px}
+        .itemThumbnail>p {padding:10px 10px 0 10px;}
+        .itemThumbnail>h4 {margin-bottom: 0;}
+        .itemContainer {padding: 5px;}
+        .itemContainer:nth-child(3n+5) {clear: both;}
+        .comPhoto {width: 80px; height: 80px;margin-left:auto; margin-right:auto}
+        .comName {margin-top: 10px;text-align: center;}
+        .comBtn {margin-bottom: 5px;float: right; background-color: #fc7949;border-color: #fc7949}
+        .comBtn:hover {background-color: #ff9334;border-color: #ff9334}
+        .navbar-default .navbar-brand {color: #fff;}
+        .navbar-default .navbar-brand:hover {color: #fff;}
+        .navbar-default .navbar-nav>li>a:hover {color: #fff; background-color: #fca649}
+        .navbar-default .navbar-nav>li>a {color: #fff;}
+        .inputArea {width: 100%; border-radius: 3px; border-color: silver}
+        .inputArea::placeholder {color: lightgray;}
+        .btn-info {
+                    color: #fff;
+                    background-color: #fc7949;
+                    border-color: #fc7949;}
+        .btn-info > a {
+                    color: #fff;
+                    background-color: #fc7949;
+                    border-color: #fc7949;}
+        .btn-info:hover {color: #fff;
+                         background-color: #fc831a;
+                         border-color: #fc831a;}
+        .navbar-default {background-color: #fc7949;border-color: #fc7949}
+        .subNav {background-color: #ff9757;border-color: #ff9757}
+        .footerContent {margin-top: 5px}
+        .footerContent > p {margin-bottom: 0px; color: #fff}
+        .helpPage {float: right;}
+    </style>
+</head>
+<body>
+   <!--Navigation Bar-->
+   <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <!--Collapsing Menu Button-->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationButtons" aria-expanded="false">  
+                    Menu
+                </button>
+            <!--Navigation Bar Logo-->
+            <span class="navbar-brand pageLogo">SIherit</span>  
+            </div>
+            <!--Navigation Bar Items-->
+            <div class="collapse navbar-collapse" id="navigationButtons">
+                    <div class="navbar-left">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="{% url 'home' %}">Home</a></li>
+                        <li class=""><a href="{% url 'gouwuche' %}">Basket</a></li>
+                        <li class=""><a href="{% url 'dingdan' %}">My Lists</a></li>
+                        <li class=""><a href="/admin">New Offer</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="navbar-right">
+                            <ul class="nav navbar-nav">
+                                    {% if request.user.is_authenticated %}
+                                        <li class=""><a>[{{ request.user }}] Welcome to SIherit!</a></li>
+                                        <li class=""><a href="{% url 'logout' %}">Log Out</a></li>
+                                    {% else %}
+                                        <li class=""><a>Welcome to SIherit!</a></li>
+                                        <li><a class="loginBtn" href="{% url 'login' %}">Login In</a></li>
+                                        <li><a class="slash">/</a></li>
+                                        <li><a class="signupBtn" href="{% url 'register' %}">Sign Up</a></li>
+                                    {% endif %}
+                            </ul>
+                    </div>
+            </div>
+
+        </div>
+    </nav><!--Navigation Bar-->
+
+    <!--<div id=tubiao; style="margin-left:250px;">
+        <img src="{% static 'images/biaozhi.png' %}" />
+        <h1 style="font-size:22px; color:#F60; margin-left:180px; margin-top:-50px"><b>Basket</b></h1>
+    </div>-->
+
+
+    <section class="cartMain">
+        <div class="cartMain_hd">
+            <ul class="order_lists cartTop">
+                <li class="list_chk">
+                    <!--Select All Items-->
+                    <input type="checkbox" id="all" class="whole_check">
+                    <label for="all"></label>
+                    Select All
+                </li>
+                <li class="list_con">Goods Info</li>
+                <li class="list_price">Price</li>
+                <li class="list_amount">Quantity</li>
+                <li class="list_sum">Subtotal</li>
+                <li class="list_op">Option</li>
+            </ul>
+        </div>
+
+        <div class="cartBox">
+            <div class="shop_info" style="background-color: #DDD">
+                <div class="all_check">
+                    <!--Select All Shops-->
+                    <input type="checkbox" id="shop_a" class="shopChoice">
+                    <label for="shop_a" class="shop"></label>
+                </div>
+                <div class="shop_name" >
+                    shop
+                </div>
+            </div>
+            <div class="order_content">
+                {% for item in goods_records %}
+                    <ul class="order_lists" style="background-color: white" data-id="{{ item.id }}">
+                        <li class="list_chk">
+                            <input type="checkbox" id="checkbox_{{ item.id }}" class="son_check">
+                            <label for="checkbox_{{ item.id }}"></label>
+                        </li>
+                        <li class="list_con">
+                            <div class="list_img"><a href="javascript:;"><img src="/{{ item.pic.url }}" alt=""></a></div>
+                            <div class="list_text"><a href="javascript:;">{{ item.discription }}</a></div>
+                        </li>
+                        <li class="list_price">
+                            <p class="price">£{{ item.price }}</p>
+                        </li>
+                        <li class="list_price">
+                            <p class="price">{{ item.count }}</p>
+                        </li>
+                        <li class="list_sum">
+                            <p class="sum_price">£{% widthratio item.count 1 item.price%}</p>
+                        </li>
+                        <li class="list_op">
+                            <p class="del"><a href="javascript:" class="delBtn">Delete Good</a></p><br><br>
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!--Comfirm Bar-->
+        <div class="bar-wrapper">
+            <div class="bar-right">
+                <div class="piece">Shopping List<strong class="piece_num">0</strong></div>
+                <div class="totalMoney">Subtotal <strong class="total_text">0.00</strong></div>
+                <div class="calBtn"><a href="javascript:;">Comfirm</a></div>
+            </div>
+        </div>
+    </section>
+    <section class="model_bg"></section>
+    <section class="my_model">
+        <p class="title">Delete Good<span class="closeModel">X</span></p>
+        <p>Are you sure you want to delete this good</p>
+        <div class="opBtn"><a href="javascript:;" class="dialog-sure">Yes</a><a href="javascript:;" class="dialog-close">   No</a></div>
+    </section>
+
+    <!--Footer-->
+    <footer class="nav navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <div class="footerContent">
+                <p>COMP6244 - Cloud Application Development</p>
+                <p>Team T 2018/19</p>
+                <p class="helpPage" style="margin-bottom: 5px;">Do you have any questions? You can find help <a href="{% url 'help' %}">here</a>.</p>
+                </div>
+            </div>
+        </footer><!--Footer-->
+    <script src="{% static 'js/carts.js' %}">
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html xmlns="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>SIherit</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+        background-color: #ff6500;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    div.good-item
+    {
+        width: 60%;
+        overflow: hidden;
+        margin: 80px auto;
+        border: solid 1px #ad6464;
+    }
+    div.good-item-right{
+        width: 50%;float: left;
+        margin-left: -6%;
+        padding: 10px;
+    }
+    div.good-item-right>p
+    {
+        margin-left: 6%;
+        min-height: 21px;
+        _height: 21px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        color: #3C3C3C;
+        margin-bottom: 20px;
+    }
+    div.good-item-right>p>span{
+        width: 120px;
+        display: inline-block;
+    }
+    div.good-item-right>p>button{
+        display: inline-block;
+        padding: .6em 1.1em;
+        font-size: 1.625rem;
+        text-decoration: none;
+        outline: none;
+        background-color: #FFD9BC;
+        color: #0f0f0f;
+        width: 46%;
+        margin-left: 2%;
+        margin-top: 10px;
+        border-radius: 3px;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        border: none;
+        -webkit-transition: -webkit-box-shadow .3s;
+        transition: box-shadow .3s;
+    }
+
+    div.good-item-right>p>button:hover
+    {
+        -webkit-box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        -webkit-transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        -webkit-animation: gelatine 0.5s 1;
+        animation: gelatine 0.5s 1;
+    }
+    div.good-item-title{
+        background-color: #ad6464;
+        font-size: 18px;
+        padding: 10px 20px;
+        color: #fff;
+        font-weight: normal;
+        margin: auto;
+    }
+</style>-->
+<style type="text/css">
+    
+    .navbar .nav > li > .loginBtn {padding-right: 0px;}
+    .navbar .nav > li > .signupBtn {padding-left: 0px;}
+    .navbar .nav > .slash {padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; color: #fff}
+    .navbar .nav > li > .subNavBtn {padding-left: 2px; padding-right: 2px;}
+    .itemThumbnail {padding: 15px; background-color: WhiteSmoke}
+    .itemThumbnail>h5 {margin-top: 0px}
+    .itemThumbnail>p {padding:10px 10px 0 10px;}
+    .itemThumbnail>h4 {margin-bottom: 0;}
+    .itemContainer {padding: 5px;}
+    .itemContainer:nth-child(3n+5) {clear: both;}
+    .comPhoto {width: 80px; height: 80px;margin-left:auto; margin-right:auto}
+    .comName {margin-top: 10px;text-align: center;}
+    .comBtn {margin-bottom: 5px;float: right; background-color: #fc7949;border-color: #fc7949}
+    .comBtn:hover {background-color: #ff9334;border-color: #ff9334}
+    .navbar-default .navbar-brand {color: #fff;}
+    .navbar-default .navbar-brand:hover {color: #fff;}
+    .navbar-default .navbar-nav>li>a:hover {color: #fff; background-color: #fca649}
+    .navbar-default .navbar-nav>li>a {color: #fff;}
+    .inputArea {width: 100%; border-radius: 3px; border-color: silver}
+    .inputArea::placeholder {color: lightgray;}
+    .btn-info {
+                color: #fff;
+                background-color: #fc7949;
+                border-color: #fc7949;}
+    .btn-info > a {
+                color: #fff;
+                background-color: #fc7949;
+                border-color: #fc7949;}
+    .btn-info:hover {color: #fff;
+                     background-color: #fc831a;
+                     border-color: #fc831a;}
+    .navbar-default {background-color: #fc7949;border-color: #fc7949}
+    .subNav {background-color: #ff9757;border-color: #ff9757}
+    .footerContent {margin-top: 5px}
+    .footerContent > p {margin-bottom: 0px; color: #fff}
+    .helpPage {float: right;}
+</style>
+</head>
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <!--Collapsing Menu Button-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationButtons" aria-expanded="false">  
+                        Menu
+                    </button>
+                <!--Navigation Bar Logo-->
+                <span class="navbar-brand pageLogo">SIherit</span>  
+                </div>
+                <!--Navigation Bar Items-->
+                <div class="collapse navbar-collapse" id="navigationButtons">
+                        <div class="navbar-left">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="{% url 'home' %}">Home</a></li>
+                            <li class=""><a href="{% url 'gouwuche' %}">Basket</a></li>
+                            <li class=""><a href="{% url 'dingdan' %}">My Lists</a></li>
+                            <li class=""><a href="/admin">New Offer</a></li>
+                        </ul>
+                        </div>
+    
+                        <div class="navbar-right">
+                                <ul class="nav navbar-nav">
+                                        {% if request.user.is_authenticated %}
+                                            <li class=""><a>[{{ request.user }}] Welcome to SIherit!</a></li>
+                                            <li class=""><a href="{% url 'logout' %}">Log Out</a></li>
+                                        {% else %}
+                                            <li class=""><a>Welcome to SIherit!</a></li>
+                                            <li><a class="loginBtn" href="{% url 'login' %}">Login In</a></li>
+                                            <li><a class="slash">/</a></li>
+                                            <li><a class="signupBtn" href="{% url 'register' %}">Sign Up</a></li>
+                                        {% endif %}
+                                </ul>
+                        </div>
+                </div>
+    
+            </div>
+        </nav><!--Navigation Bar-->
+    <div class="good-item">
+        <div class="good-item-title">
+            Submit Order
+        </div>
+        <div style="width: 50%;float: left;padding: 10px 10px 10px 10px">
+            <img src="{{ good_item.pic }}" style="width: 80%;">
+        </div>
+        <div class="good-item-right">
+            <p>Category:{{ good_item.get_classification_display }}</p>
+            <p>Name:{{ good_item.name }}</p>
+            <p>Details:{{ good_item.discription }}</p>
+            <p>Price:<span style="color: #F40;padding: 1px">¥{{ good_item.price }}</span></p>
+            <p>Stock:{{ good_item.counts }}</p>
+            <p><span >Your Addresses:</span><input type="text" name="adress"></input></p>
+            <p><span >Your Tel:</span><input type="text" name="phone_number"></input></p>
+            <p><span>Quantity：</span><input type="text" name="buy_count"></input></p>
+            <p><button style="color:#E5511D;" id="now_buy_btn">Buy Now</button>
+                <button style="background-color: #F22D00;color: #FFF;" id="now_add_bus">Add to Basket</button>
+            </p>
+        </div>
+    </div>
+
+     <!--Footer-->
+     <footer class="nav navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <div class="footerContent">
+                <p>COMP6244 - Cloud Application Development</p>
+                <p>Team T 2018/19</p>
+                <p class="helpPage" style="margin-bottom: 5px;">Do you have any questions? You can find help <a href="{% url 'help' %}">here</a>.</p>
+                </div>
+            </div>
+        </footer><!--Footer-->
+</body>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+    $(function() {
+        $("#now_buy_btn").click(function () {
+            var adress = $("input[name='adress']").val();
+            var phone_number = $("input[name='phone_number']").val();
+            var buy_count = $("input[name='buy_count']").val();
+            if(!$.isNumeric(phone_number) || phone_number.length!=11)
+            {
+                alert("Please input correct Tel number");
+                return;
+            }
+            if(adress.length==0)
+            {
+                alert("Please input correct Delivery Address");
+                return;
+            }
+            if (!$.isNumeric(phone_number))
+            {
+                alert("Incorrect Quantity");
+            }
+            if( buy_count > {{ good_item.counts }})
+            {
+                alert("Out of Stock");
+                return;
+            }
+            var data = {"good_id":{{ good_item.id }}, "adress":adress, "phone_number":phone_number, "buy_count":buy_count, "type":0};
+            $.post("{% url 'goods-item' %}",data,function(result){
+                var err = result["code"];
+                alert(result["msg"]);
+                window.location.href='/';
+            });
+        });
+        $("#now_add_bus").click(function () {
+            var adress = $("input[name='adress']").val();
+            var phone_number = $("input[name='phone_number']").val();
+            var buy_count = $("input[name='buy_count']").val();
+            if(!$.isNumeric(phone_number) || phone_number.length!=11)
+            {
+                alert("Please input correct Tel number");
+                return;
+            }
+            if(adress.length==0)
+            {
+                alert("Please input correct Delivery Address");
+                return;
+            }
+            if (!$.isNumeric(phone_number))
+            {
+                alert("Incorrect Quantity");
+            }
+            if( buy_count > {{ good_item.counts }})
+            {
+                alert("Out of Stock");
+                return;
+            }
+            var data = {"good_id":{{ good_item.id }}, "adress":adress, "phone_number":phone_number, "buy_count":buy_count, "type":-1};
+            $.post("{% url 'goods-item' %}",data,function(result){
+                var err = result["code"];
+                alert(result["msg"]);
+                window.location.href='/';
+            });
+        });
+    });
+</script>
+</html>
+
